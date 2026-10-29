@@ -617,5 +617,16 @@
     const y = Number(sessionStorage.getItem(KEY));
     if (y) requestAnimationFrame(() => window.scrollTo({ top: y, behavior: "auto" }));
     window.addEventListener("pagehide", () => sessionStorage.setItem(KEY, String(window.scrollY)));
+  } else {
+    // Always open on the hero: no remembered scroll position on load or reload.
+    // A #section link from another page (e.g. "Book a chair") still jumps there, but not on reload.
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    const nav = performance.getEntriesByType("navigation")[0];
+    const isReload = nav && nav.type === "reload";
+    if (location.hash && isReload) history.replaceState(null, "", location.pathname + location.search);
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      window.addEventListener("load", () => window.scrollTo({ top: 0, behavior: "instant" }), { once: true });
+    }
   }
 })();
