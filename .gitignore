@@ -1,0 +1,4 @@
+# Admin password hash and config backups are per-install (never commit)
+data/
+.tmp*
+.vercel

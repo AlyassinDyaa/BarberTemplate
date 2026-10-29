@@ -1,0 +1,4 @@
+# Only the static site is deployed; the admin server runs locally
+server.js
+data/
+.claude/
