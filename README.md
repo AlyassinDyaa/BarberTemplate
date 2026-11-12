@@ -2,7 +2,7 @@
 
 A responsive, accessible portfolio site for an independent barber, with an **owner-only admin panel** for editing everything without touching code.
 
-**Look:** an organic, natural-materials barbershop with a fine paper grain throughout. **Day shop** (light): raw linen, espresso ink, olive greens, oak-panelled walls, moss-green leather panels, a slate price board in an oak frame and a dark-oak footer. **After hours** (dark): walnut and tobacco by lamplight, brass trim and cognac saddle-leather panels with stitched seams. A leather razor strop runs along the top of the footer. Both have arched photo frames, numbered sections and a live Open now / Closed sign worked out from your hours (set your time zone under Shop & hours). Colours, fonts and corners can all be changed in the admin panel. It has no dependencies: plain HTML/CSS/JS plus a small Node server.
+**Look:** a classic barbershop in navy, cream and pole red. **Light:** cream paper with navy ink, navy feature panels and footer. **Dark:** midnight navy with cream type and gold details. The hero shows your name with your portrait set into it, then a strip of your cuts you can scroll sideways; each one opens that cut in the cut explorer. Barber-pole stripes frame the price list and run along the footer. Both modes have arched photo frames, numbered sections and a live Open now / Closed sign worked out from your hours (set your time zone under Shop & hours). Colours, fonts and corners can all be changed in the admin panel. It has no dependencies: plain HTML/CSS/JS plus a small Node server.
 
 ## Quick start
 
@@ -23,7 +23,7 @@ Everything on the site can be edited from `/admin.html`, and changes appear in a
 | --- | --- |
 | Look & feel | Default colour mode (system / dark / light), accent colour (presets or any colour, with a contrast check), font style, corners |
 | Profile & contact | Name, title, city, stats, phone, email, online booking link, social links |
-| Hero | Headline lines, intro, your photo (upload or URL) with alt text, the “taking new clients” card, stats. Your name is lettered in gold on the shop window and your photo appears in the shop door |
+| Hero | Headline lines, intro, your photo (upload or URL) with alt text, availability note, stats. The strip of cuts under your name comes from the Cuts section |
 | About | Heading, paragraphs, highlights, photo |
 | Section headings | Label, heading and intro text for every section |
 | Shop & hours | Current shop, address, map link, access info, opening hours |

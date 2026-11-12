@@ -91,15 +91,7 @@
         .map((line, i) => `<span class="line${i === 1 ? " accent" : ""}">${esc(line)}</span>`)
         .join(" ");
     }
-    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 800, 1000, "(min-width: 900px) 34vw, 92vw");
-    // Shop window lettering
-    if (R("since")) {
-      const years = parseInt(cfg.barber.yearsCutting, 10);
-      R("since").textContent = years > 0 ? `Cutting since ${new Date().getFullYear() - years}` : "";
-    }
-    if (R("window-services")) {
-      R("window-services").innerHTML = cfg.services.slice(0, 3).map((s) => `<span>${esc(s.name)}</span>`).join(" ");
-    }
+    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 480, 300, "240px");
     if (R("about-image")) setImg(R("about-image"), cfg.about.image.src, cfg.about.image.alt, 800, 1000, "(min-width: 900px) 40vw, 92vw");
     if (R("about-text")) R("about-text").innerHTML = cfg.about.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
     if (R("about-highlights")) R("about-highlights").innerHTML = cfg.about.highlights.map((h) => `<li>${esc(h)}</li>`).join("");
@@ -193,28 +185,9 @@
     }
     sign.textContent = text;
     sign.classList.toggle("is-closed", !open);
-    // The hanging sign on the shop door shows the short version
-    const doorSign = $("#door-sign");
-    if (doorSign) {
-      doorSign.textContent = open ? "Open" : "Closed";
-      doorSign.classList.toggle("is-closed", !open);
-    }
   }
   updateSign();
   setInterval(updateSign, 60000);
-
-  /* ---------- Gold-leaf name: shrink long names to fit the arch ---------- */
-  function fitNameArch() {
-    const text = $(".name-gold");
-    const curve = $("#name-curve");
-    if (!text || !curve || !text.getComputedTextLength) return;
-    text.style.fontSize = "";
-    const room = curve.getTotalLength() * 0.9;
-    const used = text.getComputedTextLength();
-    if (used > room) text.style.fontSize = (parseFloat(getComputedStyle(text).fontSize) * room / used) + "px";
-  }
-  fitNameArch();
-  if (document.fonts) document.fonts.ready.then(fitNameArch);
 
   /* ---------- Mobile navigation ---------- */
   const toggle = $(".nav-toggle");
@@ -352,6 +325,42 @@
       if (n !== null) { e.preventDefault(); selectCut(tabs[n].dataset.cut, true); }
     });
     selectCut(cfg.cuts[0].id, false);
+  }
+
+  /* ---------- Hero strip of cuts: each card opens that cut in the explorer ---------- */
+  const strip = R("cut-strip");
+  if (strip) {
+    strip.innerHTML = cfg.cuts.map((c) => {
+      const s = serviceFor(c);
+      return `<li><a class="strip-card" href="#cuts" data-show-cut="${esc(c.id)}">
+        <span class="strip-img">${imgTag(c.image, "", 400, 500, "(min-width: 1200px) 280px, 220px", 'loading="lazy"')}${s ? `<span class="strip-price">${money(s.price)}</span>` : ""}</span>
+        <span class="strip-name">${esc(c.name)}</span>
+      </a></li>`;
+    }).join("");
+
+    const navBtns = $$("[data-strip]");
+    const syncStripNav = () => {
+      const max = strip.scrollWidth - strip.clientWidth - 2;
+      navBtns.forEach((b) => { b.disabled = b.dataset.strip === "-1" ? strip.scrollLeft <= 2 : strip.scrollLeft >= max; });
+    };
+    navBtns.forEach((b) => b.addEventListener("click", () => {
+      const card = strip.querySelector("li");
+      const step = card ? card.getBoundingClientRect().width * 2 : 400;
+      strip.scrollBy({ left: Number(b.dataset.strip) * step, behavior: scrollBehavior() });
+    }));
+    strip.addEventListener("scroll", syncStripNav, { passive: true });
+    window.addEventListener("resize", syncStripNav);
+    syncStripNav();
+
+    strip.addEventListener("click", (e) => {
+      const link = e.target.closest("[data-show-cut]");
+      if (!link || !tabsEl) return;
+      e.preventDefault();
+      selectCut(link.dataset.showCut, false);
+      $("#cuts").scrollIntoView({ behavior: scrollBehavior() });
+      const tab = $("#cut-tab-" + link.dataset.showCut);
+      if (tab) tab.focus({ preventScroll: true });
+    });
   }
 
   /* Copy "what to ask for" + "Book this cut" (delegated: also used by finder results) */

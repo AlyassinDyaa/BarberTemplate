@@ -45,12 +45,12 @@
   ];
 
   /* ---------- Colour maths (WCAG relative luminance) ---------- */
-  const DARK_BG = "#19130f";
-  const LIGHT_BG = "#f4eee2";
+  const DARK_BG = "#0d1626";
+  const LIGHT_BG = "#f7f2e8";
   // Accent text must read on every surface: walnut, leather, chalkboard and navy (dark),
   // porcelain and mint tile (light). The first entry is the one the admin reports against.
-  const DARK_SURFACES = ["#313a29", "#452b17", "#3a2d24", "#2a1e16"];
-  const LIGHT_SURFACES = ["#e0d4bd", "#ebe2d1", "#f4eee2"];
+  const DARK_SURFACES = ["#213a60", "#1d3253", "#182b48", "#16253d"];
+  const LIGHT_SURFACES = ["#e6dac5", "#efe6d6", "#f7f2e8"];
   const DARK_SURFACE = DARK_SURFACES[0];
   const LIGHT_SURFACE = LIGHT_SURFACES[0];
 

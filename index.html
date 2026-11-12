@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lucas Hale — Barber | Fades, Cuts &amp; Beard Work</title>
   <meta name="description" content="Independent barber specialising in skin fades, classic scissor cuts and beard sculpting. Explore the cuts, find your style and book a chair.">
-  <meta name="theme-color" content="#f4eee2">
+  <meta name="theme-color" content="#f7f2e8">
   <meta property="og:title" content="Lucas Hale — Barber">
   <meta property="og:description" content="Fades, classic cuts and beard work. Explore the cuts and book a chair.">
   <meta property="og:type" content="website">
@@ -70,60 +70,41 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="shopfront">
-          <div class="awning" aria-hidden="true"></div>
-          <div class="shopfront-panes">
-            <!-- Shop window: name in gold leaf on the glass -->
-            <div class="window">
-              <div class="window-lettering">
-                <p class="window-est" data-render="since">Cutting since 2017</p>
-                <h1 id="hero-title" class="window-name">
-                  <svg class="name-arch" viewBox="0 0 1000 250" aria-hidden="true" focusable="false">
-                    <defs>
-                      <linearGradient id="gold-leaf" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#fbeab2"/>
-                        <stop offset="0.45" stop-color="#d9ac52"/>
-                        <stop offset="0.55" stop-color="#b5832f"/>
-                        <stop offset="1" stop-color="#f1d58e"/>
-                      </linearGradient>
-                      <path id="name-curve" d="M70 235 Q500 -25 930 235"/>
-                    </defs>
-                    <text class="name-gold"><textPath href="#name-curve" startOffset="50%" text-anchor="middle"><tspan data-bind="barber.firstName">Lucas</tspan> <tspan data-bind="barber.lastName">Hale</tspan></textPath></text>
-                  </svg>
-                  <span class="sr-only"><span data-bind="barber.firstName">Lucas</span> <span data-bind="barber.lastName">Hale</span>, barber</span>
-                </h1>
-                <p class="window-trade"><span data-bind="barber.title">Independent barber</span> <span aria-hidden="true">·</span> <span data-bind="barber.city">Brooklyn, NY</span></p>
-                <p class="window-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
-                <p class="window-services" data-render="window-services"></p>
-              </div>
-              <p class="window-card"><span class="dot" aria-hidden="true"></span> <span data-bind="hero.available">Taking new clients</span></p>
-            </div>
-
-            <!-- Shop door: the barber, seen through the door glass -->
-            <div class="door">
-              <div class="door-glass">
-                <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
-                <p class="door-sign" id="door-sign" aria-hidden="true"></p>
-              </div>
-              <span class="door-push" aria-hidden="true">Push</span>
-            </div>
-          </div>
-
-          <!-- Window sill -->
-          <div class="sill">
-            <p class="lead">I'm <span data-bind="barber.firstName">Lucas</span> — <span data-bind="hero.intro"></span></p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#book">Book a chair</a>
-              <a class="btn btn-ghost" href="#finder">Find my cut</a>
-            </div>
-            <ul class="hero-stats" aria-label="At a glance">
-              <li><strong><span data-bind="barber.yearsCutting">9</span>+</strong> <span>years cutting</span></li>
-              <li><strong><span data-bind="barber.rating">4.9</span><span aria-hidden="true">★</span><span class="sr-only"> stars</span></strong> <span>from <span data-bind="barber.reviewCount">300+</span> reviews</span></li>
-              <li><strong data-bind="hero.statValue">40 min</strong> <span data-bind="hero.statLabel">per appointment, minimum</span></li>
-            </ul>
+      <div class="container hero-top">
+        <div class="hero-id">
+          <p class="eyebrow"><span data-bind="barber.title">Independent barber</span> — <span data-bind="barber.city">Brooklyn, NY</span></p>
+          <h1 id="hero-title">
+            <span data-bind="barber.firstName">Lucas</span> <span class="hero-portrait"><img data-render="hero-image" alt="" width="480" height="300" fetchpriority="high"></span> <span class="last" data-bind="barber.lastName">Hale</span>
+          </h1>
+        </div>
+        <div class="hero-side">
+          <p class="hero-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
+          <p class="lead">I'm <span data-bind="barber.firstName">Lucas</span> — <span data-bind="hero.intro"></span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#book">Book a chair</a>
+            <a class="btn btn-ghost" href="#finder">Find my cut</a>
+            <p class="hero-available"><span class="dot" aria-hidden="true"></span> <span data-bind="hero.available">Taking new clients</span></p>
           </div>
         </div>
+      </div>
+
+      <div class="strip">
+        <div class="container strip-head">
+          <h2 class="strip-title" id="strip-title">Cuts I do every week</h2>
+          <div class="strip-nav">
+            <button type="button" class="icon-btn" data-strip="-1"><span aria-hidden="true">←</span><span class="sr-only">Previous cuts</span></button>
+            <button type="button" class="icon-btn" data-strip="1"><span aria-hidden="true">→</span><span class="sr-only">More cuts</span></button>
+          </div>
+        </div>
+        <ul class="cut-strip" role="list" aria-labelledby="strip-title" data-render="cut-strip"></ul>
+      </div>
+
+      <div class="container">
+        <ul class="hero-stats" aria-label="At a glance">
+          <li><strong><span data-bind="barber.yearsCutting">9</span>+</strong> <span>years cutting</span></li>
+          <li><strong><span data-bind="barber.rating">4.9</span><span aria-hidden="true">★</span><span class="sr-only"> stars</span></strong> <span>from <span data-bind="barber.reviewCount">300+</span> reviews</span></li>
+          <li><strong data-bind="hero.statValue">40 min</strong> <span data-bind="hero.statLabel">per appointment, minimum</span></li>
+        </ul>
       </div>
     </section>
 
