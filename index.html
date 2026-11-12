@@ -70,39 +70,60 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span data-bind="barber.title">Independent barber</span> — <span data-bind="barber.city">Brooklyn, NY</span></p>
-          <h1 id="hero-title" data-render="headline">Sharp cuts. Clean fades. No rush.</h1>
-          <p class="lead">I'm <span data-bind="barber.firstName">Lucas</span> — <span data-bind="hero.intro"></span></p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#book">Book a chair</a>
-            <a class="btn btn-ghost" href="#finder">Find my cut</a>
-          </div>
-        </div>
-
-        <div class="hero-media">
-          <div class="arch-frame">
-            <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
-          </div>
-          <p class="hero-badge"><span class="dot" aria-hidden="true"></span> <span data-bind="hero.available">Taking new clients</span></p>
-          <a class="seal" href="#book" aria-label="Book a chair">
-            <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-              <defs><path id="seal-path" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-              <circle cx="60" cy="60" r="58" class="seal-bg"/>
-              <text class="seal-text"><textPath href="#seal-path">BOOK A CHAIR · BOOK A CHAIR · BOOK A CHAIR ·</textPath></text>
-              <g class="seal-icon" transform="translate(44 44)"><use href="#icon-scissors" width="32" height="32"/></g>
-            </svg>
-          </a>
-        </div>
-      </div>
-
       <div class="container">
-        <ul class="hero-stats" aria-label="At a glance">
-          <li><strong><span data-bind="barber.yearsCutting">9</span>+</strong> <span>years cutting</span></li>
-          <li><strong><span data-bind="barber.rating">4.9</span><span aria-hidden="true">★</span><span class="sr-only"> stars</span></strong> <span>from <span data-bind="barber.reviewCount">300+</span> reviews</span></li>
-          <li><strong data-bind="hero.statValue">40 min</strong> <span data-bind="hero.statLabel">per appointment, minimum</span></li>
-        </ul>
+        <div class="shopfront">
+          <div class="awning" aria-hidden="true"></div>
+          <div class="shopfront-panes">
+            <!-- Shop window: name in gold leaf on the glass -->
+            <div class="window">
+              <div class="window-lettering">
+                <p class="window-est" data-render="since">Cutting since 2017</p>
+                <h1 id="hero-title" class="window-name">
+                  <svg class="name-arch" viewBox="0 0 1000 250" aria-hidden="true" focusable="false">
+                    <defs>
+                      <linearGradient id="gold-leaf" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#fbeab2"/>
+                        <stop offset="0.45" stop-color="#d9ac52"/>
+                        <stop offset="0.55" stop-color="#b5832f"/>
+                        <stop offset="1" stop-color="#f1d58e"/>
+                      </linearGradient>
+                      <path id="name-curve" d="M70 235 Q500 -25 930 235"/>
+                    </defs>
+                    <text class="name-gold"><textPath href="#name-curve" startOffset="50%" text-anchor="middle"><tspan data-bind="barber.firstName">Lucas</tspan> <tspan data-bind="barber.lastName">Hale</tspan></textPath></text>
+                  </svg>
+                  <span class="sr-only"><span data-bind="barber.firstName">Lucas</span> <span data-bind="barber.lastName">Hale</span>, barber</span>
+                </h1>
+                <p class="window-trade"><span data-bind="barber.title">Independent barber</span> <span aria-hidden="true">·</span> <span data-bind="barber.city">Brooklyn, NY</span></p>
+                <p class="window-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
+                <p class="window-services" data-render="window-services"></p>
+              </div>
+              <p class="window-card"><span class="dot" aria-hidden="true"></span> <span data-bind="hero.available">Taking new clients</span></p>
+            </div>
+
+            <!-- Shop door: the barber, seen through the door glass -->
+            <div class="door">
+              <div class="door-glass">
+                <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
+                <p class="door-sign" id="door-sign" aria-hidden="true"></p>
+              </div>
+              <span class="door-push" aria-hidden="true">Push</span>
+            </div>
+          </div>
+
+          <!-- Window sill -->
+          <div class="sill">
+            <p class="lead">I'm <span data-bind="barber.firstName">Lucas</span> — <span data-bind="hero.intro"></span></p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#book">Book a chair</a>
+              <a class="btn btn-ghost" href="#finder">Find my cut</a>
+            </div>
+            <ul class="hero-stats" aria-label="At a glance">
+              <li><strong><span data-bind="barber.yearsCutting">9</span>+</strong> <span>years cutting</span></li>
+              <li><strong><span data-bind="barber.rating">4.9</span><span aria-hidden="true">★</span><span class="sr-only"> stars</span></strong> <span>from <span data-bind="barber.reviewCount">300+</span> reviews</span></li>
+              <li><strong data-bind="hero.statValue">40 min</strong> <span data-bind="hero.statLabel">per appointment, minimum</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 

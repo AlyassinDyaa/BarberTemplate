@@ -91,7 +91,15 @@
         .map((line, i) => `<span class="line${i === 1 ? " accent" : ""}">${esc(line)}</span>`)
         .join(" ");
     }
-    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 800, 1000, "(min-width: 860px) 40vw, 92vw");
+    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 800, 1000, "(min-width: 900px) 34vw, 92vw");
+    // Shop window lettering
+    if (R("since")) {
+      const years = parseInt(cfg.barber.yearsCutting, 10);
+      R("since").textContent = years > 0 ? `Cutting since ${new Date().getFullYear() - years}` : "";
+    }
+    if (R("window-services")) {
+      R("window-services").innerHTML = cfg.services.slice(0, 3).map((s) => `<span>${esc(s.name)}</span>`).join(" ");
+    }
     if (R("about-image")) setImg(R("about-image"), cfg.about.image.src, cfg.about.image.alt, 800, 1000, "(min-width: 900px) 40vw, 92vw");
     if (R("about-text")) R("about-text").innerHTML = cfg.about.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
     if (R("about-highlights")) R("about-highlights").innerHTML = cfg.about.highlights.map((h) => `<li>${esc(h)}</li>`).join("");
@@ -185,9 +193,28 @@
     }
     sign.textContent = text;
     sign.classList.toggle("is-closed", !open);
+    // The hanging sign on the shop door shows the short version
+    const doorSign = $("#door-sign");
+    if (doorSign) {
+      doorSign.textContent = open ? "Open" : "Closed";
+      doorSign.classList.toggle("is-closed", !open);
+    }
   }
   updateSign();
   setInterval(updateSign, 60000);
+
+  /* ---------- Gold-leaf name: shrink long names to fit the arch ---------- */
+  function fitNameArch() {
+    const text = $(".name-gold");
+    const curve = $("#name-curve");
+    if (!text || !curve || !text.getComputedTextLength) return;
+    text.style.fontSize = "";
+    const room = curve.getTotalLength() * 0.9;
+    const used = text.getComputedTextLength();
+    if (used > room) text.style.fontSize = (parseFloat(getComputedStyle(text).fontSize) * room / used) + "px";
+  }
+  fitNameArch();
+  if (document.fonts) document.fonts.ready.then(fitNameArch);
 
   /* ---------- Mobile navigation ---------- */
   const toggle = $(".nav-toggle");

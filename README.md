@@ -23,7 +23,7 @@ Everything on the site can be edited from `/admin.html`, and changes appear in a
 | --- | --- |
 | Look & feel | Default colour mode (system / dark / light), accent colour (presets or any colour, with a contrast check), font style, corners |
 | Profile & contact | Name, title, city, stats, phone, email, online booking link, social links |
-| Hero | Headline lines, intro, your photo (upload or URL) with alt text, badge, stats |
+| Hero | Headline lines, intro, your photo (upload or URL) with alt text, the “taking new clients” card, stats. Your name is lettered in gold on the shop window and your photo appears in the shop door |
 | About | Heading, paragraphs, highlights, photo |
 | Section headings | Label, heading and intro text for every section |
 | Shop & hours | Current shop, address, map link, access info, opening hours |

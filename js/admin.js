@@ -107,9 +107,9 @@
       id: "hero", title: "Hero (top of page)", anchor: "top",
       groups: [
         { legend: "Headline", fields: [
-          { key: "hero.headline", label: "Headline lines", type: "lines", rows: 3, hint: "One line per row. The second line uses your accent colour." },
+          { key: "hero.headline", label: "Motto on the window", type: "lines", rows: 3, hint: "One line per row, lettered under your name. The second line uses your accent colour." },
           { key: "hero.intro", label: "Intro sentence", type: "textarea", rows: 3, hint: "Follows “I'm [first name] —”." },
-          { key: "hero.available", label: "Badge on the photo", hint: "e.g. Taking new clients" },
+          { key: "hero.available", label: "Card in the shop window", hint: "e.g. Taking new clients" },
         ] },
         { legend: "Your photo", fields: [{ key: "hero.image", label: "Photo of you", type: "image", required: true }] },
         { legend: "Third stat", fields: [
