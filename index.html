@@ -70,21 +70,25 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span data-bind="barber.title">Independent barber</span>, <span data-bind="barber.city">Brooklyn, NY</span></p>
-          <h1 id="hero-title"><span data-bind="barber.firstName">Lucas</span> <span data-bind="barber.lastName">Hale</span></h1>
-          <p class="hero-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
-          <p class="lead"><span data-bind="hero.intro"></span></p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#book">Book a chair</a>
-            <a class="btn btn-ghost" href="#cuts">See the cuts</a>
+      <div class="container">
+        <div class="poster">
+          <h1 id="hero-title" class="sr-only"><span data-bind="barber.firstName">Lucas</span> <span data-bind="barber.lastName">Hale</span>, barber</h1>
+          <p class="poster-name poster-first" aria-hidden="true" data-bind="barber.firstName">Lucas</p>
+          <p class="poster-name poster-last" aria-hidden="true" data-bind="barber.lastName">Hale</p>
+          <figure class="poster-photo">
+            <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
+          </figure>
+          <div class="poster-copy">
+            <p class="eyebrow"><span data-bind="barber.title">Independent barber</span>, <span data-bind="barber.city">Brooklyn, NY</span></p>
+            <p class="hero-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
+            <p class="lead"><span data-bind="hero.intro"></span></p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#book">Book a chair</a>
+              <a class="btn btn-ghost" href="#cuts">See the cuts</a>
+            </div>
+            <p class="hero-note"><span data-bind="hero.available">Taking new clients</span> · Chair at <a href="#find-me" data-bind="shop.name">The Common Cut</a></p>
           </div>
-          <p class="hero-note"><span data-bind="hero.available">Taking new clients</span> · Chair at <a href="#find-me" data-bind="shop.name">The Common Cut</a></p>
         </div>
-        <figure class="hero-photo">
-          <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
-        </figure>
       </div>
 
       <div class="container hero-work">

@@ -349,6 +349,20 @@
     });
   }
 
+  /* ---------- Poster name: shrink long names so each line fits ---------- */
+  const poster = $(".poster");
+  function fitPosterName() {
+    if (!poster) return;
+    poster.style.removeProperty("--name-size");
+    const names = $$(".poster-name", poster);
+    const size = parseFloat(getComputedStyle(names[0]).fontSize);
+    const ratio = Math.min(1, ...names.map((n) => n.clientWidth / n.scrollWidth));
+    if (ratio < 1) poster.style.setProperty("--name-size", Math.floor(size * ratio * 0.98) + "px");
+  }
+  fitPosterName();
+  window.addEventListener("resize", fitPosterName);
+  if (document.fonts) document.fonts.ready.then(fitPosterName);
+
   /* Copy "what to ask for" + "Book this cut" (delegated: also used by finder results) */
   document.addEventListener("click", async (e) => {
     const copyBtn = e.target.closest("[data-copy]");
