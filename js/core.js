@@ -16,6 +16,8 @@
   const cfg = window.SITE_CONFIG;
 
   const FONTS = {
+    studio: { label: "Studio", sample: "Schibsted Grotesk", display: '"Schibsted Grotesk"', body: '"Schibsted Grotesk"', transform: "none", weight: 600, tracking: "-0.025em",
+      query: "family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..600" },
     editorial: { label: "Editorial", sample: "Fraunces + Manrope", display: '"Fraunces"', body: '"Manrope"', transform: "none", weight: 450, tracking: "-0.02em",
       query: "family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700" },
     classic: { label: "Classic", sample: "Oswald + Inter", display: '"Oswald"', body: '"Inter"', transform: "uppercase", weight: 700, tracking: "0.01em",
@@ -127,7 +129,7 @@
     root.style.setProperty("--accent-on-dark", a.onDark);
     root.style.setProperty("--accent-on-light", a.onLight);
 
-    const f = FONTS[theme.font] || FONTS.editorial;
+    const f = FONTS[theme.font] || FONTS.studio;
     root.style.setProperty("--font-display", f.display + ', Georgia, "Times New Roman", serif');
     root.style.setProperty("--font-body", f.body + ', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif');
     root.style.setProperty("--heading-transform", f.transform);

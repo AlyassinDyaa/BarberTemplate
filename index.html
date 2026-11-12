@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link id="font-css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700&display=swap">
+  <link id="font-css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..600&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/config.js"></script>
   <script src="js/core.js"></script>
@@ -70,41 +70,29 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-top">
-        <div class="hero-id">
-          <p class="eyebrow"><span data-bind="barber.title">Independent barber</span> — <span data-bind="barber.city">Brooklyn, NY</span></p>
-          <h1 id="hero-title">
-            <span data-bind="barber.firstName">Lucas</span> <span class="hero-portrait"><img data-render="hero-image" alt="" width="480" height="300" fetchpriority="high"></span> <span class="last" data-bind="barber.lastName">Hale</span>
-          </h1>
-        </div>
-        <div class="hero-side">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span data-bind="barber.title">Independent barber</span>, <span data-bind="barber.city">Brooklyn, NY</span></p>
+          <h1 id="hero-title"><span data-bind="barber.firstName">Lucas</span> <span data-bind="barber.lastName">Hale</span></h1>
           <p class="hero-motto" data-render="headline">Sharp cuts. Clean fades. No rush.</p>
-          <p class="lead">I'm <span data-bind="barber.firstName">Lucas</span> — <span data-bind="hero.intro"></span></p>
+          <p class="lead"><span data-bind="hero.intro"></span></p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#book">Book a chair</a>
-            <a class="btn btn-ghost" href="#finder">Find my cut</a>
-            <p class="hero-available"><span class="dot" aria-hidden="true"></span> <span data-bind="hero.available">Taking new clients</span></p>
+            <a class="btn btn-ghost" href="#cuts">See the cuts</a>
           </div>
+          <p class="hero-note"><span data-bind="hero.available">Taking new clients</span> · Chair at <a href="#find-me" data-bind="shop.name">The Common Cut</a></p>
         </div>
+        <figure class="hero-photo">
+          <img data-render="hero-image" alt="" width="800" height="1000" fetchpriority="high">
+        </figure>
       </div>
 
-      <div class="strip">
-        <div class="container strip-head">
-          <h2 class="strip-title" id="strip-title">Cuts I do every week</h2>
-          <div class="strip-nav">
-            <button type="button" class="icon-btn" data-strip="-1"><span aria-hidden="true">←</span><span class="sr-only">Previous cuts</span></button>
-            <button type="button" class="icon-btn" data-strip="1"><span aria-hidden="true">→</span><span class="sr-only">More cuts</span></button>
-          </div>
+      <div class="container hero-work">
+        <div class="hero-work-head">
+          <h2 class="hero-work-title" id="hero-work-title">Recent cuts</h2>
+          <a href="#work">All work</a>
         </div>
-        <ul class="cut-strip" role="list" aria-labelledby="strip-title" data-render="cut-strip"></ul>
-      </div>
-
-      <div class="container">
-        <ul class="hero-stats" aria-label="At a glance">
-          <li><strong><span data-bind="barber.yearsCutting">9</span>+</strong> <span>years cutting</span></li>
-          <li><strong><span data-bind="barber.rating">4.9</span><span aria-hidden="true">★</span><span class="sr-only"> stars</span></strong> <span>from <span data-bind="barber.reviewCount">300+</span> reviews</span></li>
-          <li><strong data-bind="hero.statValue">40 min</strong> <span data-bind="hero.statLabel">per appointment, minimum</span></li>
-        </ul>
+        <ul class="hero-cuts" role="list" aria-labelledby="hero-work-title" data-render="cut-strip"></ul>
       </div>
     </section>
 
@@ -115,7 +103,7 @@
           <div class="arch-frame"><img data-render="about-image" alt="" width="800" height="1000" loading="lazy"></div>
         </div>
         <div class="about-body">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span>About</p>
+          <p class="eyebrow">About</p>
           <h2 id="about-title" data-bind="about.heading">The barber, not the building</h2>
           <div class="about-text" data-render="about-text"></div>
           <ul class="checklist" data-render="about-highlights"></ul>
@@ -123,13 +111,12 @@
       </div>
     </section>
 
-    <div class="pole" aria-hidden="true"></div>
 
     <!-- ===================== CUT EXPLORER ===================== -->
     <section class="section" id="cuts" aria-labelledby="cuts-title">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.cuts.eyebrow">Explore the cuts</span></p>
+          <p class="eyebrow"><span data-bind="text.cuts.eyebrow">Explore the cuts</span></p>
           <h2 id="cuts-title" data-bind="text.cuts.title">Pick a style, see the details</h2>
           <p data-bind="text.cuts.intro"></p>
         </div>
@@ -144,7 +131,7 @@
     <section class="section invert" id="finder" aria-labelledby="finder-title" data-section="finder">
       <div class="container finder-grid">
         <div class="section-head">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.finder.eyebrow">Cut finder</span></p>
+          <p class="eyebrow"><span data-bind="text.finder.eyebrow">Cut finder</span></p>
           <h2 id="finder-title" data-bind="text.finder.title">Not sure what to get?</h2>
           <p data-bind="text.finder.intro"></p>
         </div>
@@ -199,7 +186,7 @@
     <section class="section section-alt" id="guards" aria-labelledby="guards-title" data-section="guards">
       <div class="container guards-grid">
         <div class="section-head">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.guards.eyebrow">Speak barber</span></p>
+          <p class="eyebrow"><span data-bind="text.guards.eyebrow">Speak barber</span></p>
           <h2 id="guards-title" data-bind="text.guards.title">Clipper guard guide</h2>
           <p data-bind="text.guards.intro"></p>
         </div>
@@ -222,8 +209,8 @@
     <section class="section invert" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="menu-board">
-          <div class="section-head section-head-center">
-            <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.services.eyebrow">Services &amp; prices</span></p>
+          <div class="section-head">
+            <p class="eyebrow"><span data-bind="text.services.eyebrow">Services &amp; prices</span></p>
             <h2 id="services-title" data-bind="text.services.title">What I do</h2>
             <p data-bind="text.services.intro"></p>
           </div>
@@ -238,7 +225,7 @@
       <div class="container">
         <div class="section-head section-head-row">
           <div>
-            <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.work.eyebrow">Portfolio</span></p>
+            <p class="eyebrow"><span data-bind="text.work.eyebrow">Portfolio</span></p>
             <h2 id="work-title" data-bind="text.work.title">Recent work</h2>
             <p data-bind="text.work.intro"></p>
           </div>
@@ -271,7 +258,7 @@
     <section class="section section-alt" id="reviews" aria-labelledby="reviews-title" data-section="reviews">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.reviews.eyebrow">Reviews</span></p>
+          <p class="eyebrow"><span data-bind="text.reviews.eyebrow">Reviews</span></p>
           <h2 id="reviews-title" data-bind="text.reviews.title">What clients say</h2>
         </div>
         <ul class="reviews" role="list" data-render="reviews"></ul>
@@ -282,7 +269,7 @@
     <section class="section" id="find-me" aria-labelledby="find-title">
       <div class="container find-grid">
         <div class="find-main">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.find.eyebrow">Where I'm cutting now</span></p>
+          <p class="eyebrow"><span data-bind="text.find.eyebrow">Where I'm cutting now</span></p>
           <h2 id="find-title" data-bind="text.find.title">Find my chair</h2>
           <p class="shop-name" data-bind="shop.name">The Common Cut</p>
           <address class="shop-address" data-render="shop-address"></address>
@@ -316,7 +303,7 @@
     <section class="section invert" id="book" aria-labelledby="book-title">
       <div class="container book-grid">
         <div class="book-intro">
-          <p class="eyebrow"><span class="num" aria-hidden="true"></span><span data-bind="text.book.eyebrow">Book</span></p>
+          <p class="eyebrow"><span data-bind="text.book.eyebrow">Book</span></p>
           <h2 id="book-title" data-bind="text.book.title">Book a chair</h2>
           <p class="muted" data-bind="text.book.intro"></p>
           <p><a class="btn btn-ghost" data-href="{barber.bookingUrl}" href="#" target="_blank" rel="noopener">Book online instead<span class="sr-only"> (opens in a new tab)</span></a></p>
@@ -387,9 +374,7 @@
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer tone-dark">
-    <div class="strop" aria-hidden="true"></div>
     <div class="container">
-      <p class="footer-wordmark" aria-hidden="true"><span data-bind="barber.firstName">Lucas</span> <em data-bind="barber.lastName">Hale</em></p>
       <div class="footer-grid">
         <div>
           <p class="brand brand-footer">

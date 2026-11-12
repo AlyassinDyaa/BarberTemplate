@@ -24,8 +24,8 @@ window.SITE_CONFIG = {
   "theme": {
     "mode": "auto",
     "accent": "#b4372b",
-    "font": "editorial",
-    "corners": "rounded"
+    "font": "studio",
+    "corners": "soft"
   },
   "sections": {
     "finder": true,

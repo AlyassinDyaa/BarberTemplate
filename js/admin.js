@@ -107,7 +107,7 @@
       id: "hero", title: "Hero (top of page)", anchor: "top",
       groups: [
         { legend: "Headline", fields: [
-          { key: "hero.headline", label: "Motto", type: "lines", rows: 3, hint: "One line per row, shown beside your name. The second line uses your accent colour." },
+          { key: "hero.headline", label: "Motto", type: "lines", rows: 3, hint: "One line per row, shown under your name as one sentence." },
           { key: "hero.intro", label: "Intro sentence", type: "textarea", rows: 3, hint: "Follows “I'm [first name] —”." },
           { key: "hero.available", label: "Availability note", hint: "e.g. Taking new clients" },
         ] },

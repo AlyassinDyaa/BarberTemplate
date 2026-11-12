@@ -2,7 +2,7 @@
 
 A responsive, accessible portfolio site for an independent barber, with an **owner-only admin panel** for editing everything without touching code.
 
-**Look:** a classic barbershop in navy, cream and pole red. **Light:** cream paper with navy ink, navy feature panels and footer. **Dark:** midnight navy with cream type and gold details. The hero shows your name with your portrait set into it, then a strip of your cuts you can scroll sideways; each one opens that cut in the cut explorer. Barber-pole stripes frame the price list and run along the footer. Both modes have arched photo frames, numbered sections and a live Open now / Closed sign worked out from your hours (set your time zone under Shop & hours). Colours, fonts and corners can all be changed in the admin panel. It has no dependencies: plain HTML/CSS/JS plus a small Node server.
+**Look:** a clean, contained portfolio in navy, cream and barber red, set in one typeface (Schibsted Grotesk). **Light:** cream with navy text and navy feature panels. **Dark:** midnight navy with cream text. The hero puts your name, intro and booking buttons beside your portrait, with four recent cuts underneath; each one opens that cut in the cut explorer. Both modes have a live Open now / Closed sign worked out from your hours (set your time zone under Shop & hours). Colours, fonts and corners can all be changed in the admin panel. It has no dependencies: plain HTML/CSS/JS plus a small Node server.
 
 ## Quick start
 

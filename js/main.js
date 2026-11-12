@@ -88,10 +88,10 @@
     const h1 = R("headline");
     if (h1) {
       h1.innerHTML = cfg.hero.headline
-        .map((line, i) => `<span class="line${i === 1 ? " accent" : ""}">${esc(line)}</span>`)
+        .map((line) => esc(line))
         .join(" ");
     }
-    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 480, 300, "240px");
+    if (R("hero-image")) setImg(R("hero-image"), cfg.hero.image.src, cfg.hero.image.alt, 800, 1000, "(min-width: 860px) 40vw, 92vw");
     if (R("about-image")) setImg(R("about-image"), cfg.about.image.src, cfg.about.image.alt, 800, 1000, "(min-width: 900px) 40vw, 92vw");
     if (R("about-text")) R("about-text").innerHTML = cfg.about.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
     if (R("about-highlights")) R("about-highlights").innerHTML = cfg.about.highlights.map((h) => `<li>${esc(h)}</li>`).join("");
@@ -327,30 +327,16 @@
     selectCut(cfg.cuts[0].id, false);
   }
 
-  /* ---------- Hero strip of cuts: each card opens that cut in the explorer ---------- */
+  /* ---------- Hero: four recent cuts, each opens that cut in the explorer ---------- */
   const strip = R("cut-strip");
   if (strip) {
-    strip.innerHTML = cfg.cuts.map((c) => {
+    strip.innerHTML = cfg.cuts.slice(0, 4).map((c) => {
       const s = serviceFor(c);
       return `<li><a class="strip-card" href="#cuts" data-show-cut="${esc(c.id)}">
-        <span class="strip-img">${imgTag(c.image, "", 400, 500, "(min-width: 1200px) 280px, 220px", 'loading="lazy"')}${s ? `<span class="strip-price">${money(s.price)}</span>` : ""}</span>
-        <span class="strip-name">${esc(c.name)}</span>
+        ${imgTag(c.image, "", 400, 500, "(min-width: 860px) 260px, 45vw", 'loading="lazy"')}
+        <span class="strip-meta"><span class="strip-name">${esc(c.name)}</span>${s ? `<span class="strip-price">from ${money(s.price)}</span>` : ""}</span>
       </a></li>`;
     }).join("");
-
-    const navBtns = $$("[data-strip]");
-    const syncStripNav = () => {
-      const max = strip.scrollWidth - strip.clientWidth - 2;
-      navBtns.forEach((b) => { b.disabled = b.dataset.strip === "-1" ? strip.scrollLeft <= 2 : strip.scrollLeft >= max; });
-    };
-    navBtns.forEach((b) => b.addEventListener("click", () => {
-      const card = strip.querySelector("li");
-      const step = card ? card.getBoundingClientRect().width * 2 : 400;
-      strip.scrollBy({ left: Number(b.dataset.strip) * step, behavior: scrollBehavior() });
-    }));
-    strip.addEventListener("scroll", syncStripNav, { passive: true });
-    window.addEventListener("resize", syncStripNav);
-    syncStripNav();
 
     strip.addEventListener("click", (e) => {
       const link = e.target.closest("[data-show-cut]");
